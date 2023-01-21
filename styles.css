@@ -1,0 +1,111 @@
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    margin: 0;
+    background-color: #251749;
+    overflow-x: hidden;
+}
+.wrapper{
+    width: 100%;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas: "header header"
+                         "main   aside"
+                         "footer footer";
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 50px 1fr 50px;
+    overflow: hidden;
+}
+.wrapper .header{
+    background-color: #263159;
+    grid-area: header;
+    height: 50px;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
+.wrapper .header ul{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.wrapper .header ul li{
+    padding: 1em 0;
+}
+.wrapper .header ul li a{
+    padding: .8em 1.4em;
+    text-decoration: none;
+    font-size: 1.1em;
+    color: #FFFBEB;
+}
+.wrapper .main{
+    grid-area: main;
+    padding: 2em 2em 0;
+    background-color: #FFFBEB;
+    z-index: 30;
+}
+.wrapper .main section{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+.wrapper .aside{
+    grid-area: aside;
+    padding: 2em 2em 0;
+    background-color: #495579;
+    color: #eee;
+    transform: translateY(-150%);
+}
+.wrapper .footer{
+    grid-area: footer;
+    text-align: center;
+    background-color: #251749;
+    color: #eee;
+}
+
+@media (max-width: 600px) {
+        
+    .wrapper{
+        height: auto;
+        grid-template-areas: "header header"
+                             "main   main"
+                             "aside  aside"
+                             "footer footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto 50px;
+        column-gap: unset;
+    }
+    .wrapper .header{
+        height: auto;
+    }
+    .wrapper .header ul{
+        flex-direction: column;
+    }
+    .wrapper .header ul a{
+        width: 100%;
+    }
+    .wrapper .main{
+        padding: 2em;
+    }
+    .wrapper .aside{
+        padding: 2em;
+        transform: translateY(-450%);
+    }
+}
+@media (max-width: 270px) {
+    .wrapper .main{
+        padding: .8em;
+    }
+    .wrapper .aside{
+        padding: .8em;
+    }
+}
